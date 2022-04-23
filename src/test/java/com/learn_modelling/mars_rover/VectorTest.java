@@ -5,20 +5,20 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class CoordinateTest {
+public class VectorTest {
     @Test
     void shouldCompareOneCoordinateWithAnother() {
-        Coordinate coordinate = new Coordinate(2, 3);
-        Coordinate other = new Coordinate(2, 3);
+        Vector vector = new Vector(2, 3, Direction.NORTH);
+        Vector other = new Vector(2, 3, Direction.NORTH);
 
-        assertEquals(coordinate, other);
+        assertEquals(vector, other);
     }
 
     @Test
     void shouldReturnOutOfBoundsWhenX2AndY2IsComparedWithX3AndY2() {
-        Coordinate coordinate = new Coordinate(2, 2);
-        Coordinate greater = new Coordinate(3,2);
+        Vector vector = new Vector(2, 2, Direction.NORTH);
+        Vector greater = new Vector(3, 2, Direction.NORTH);
 
-        assertTrue(greater.isOutOfBounds(coordinate));
+        assertTrue(greater.isOutOfBounds(vector));
     }
 }

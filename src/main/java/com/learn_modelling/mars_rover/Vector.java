@@ -2,29 +2,31 @@ package com.learn_modelling.mars_rover;
 
 import java.util.Objects;
 
-public class Coordinate {
+public class Vector {
     private final int x;
     private final int y;
+    private final Direction direction;
 
-    public Coordinate(int x, int y) {
+    public Vector(int x, int y, Direction direction) {
         this.x = x;
         this.y = y;
+        this.direction = direction;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Coordinate that = (Coordinate) o;
-        return x == that.x && y == that.y;
+        Vector vector = (Vector) o;
+        return x == vector.x && y == vector.y && direction == vector.direction;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(x, y);
+        return Objects.hash(x, y, direction);
     }
 
-    public boolean isOutOfBounds(Coordinate other) {
+    public boolean isOutOfBounds(Vector other) {
         return this.x > other.x || this.y > other.y;
     }
 }
