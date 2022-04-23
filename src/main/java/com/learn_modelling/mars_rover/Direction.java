@@ -13,7 +13,7 @@ public enum Direction {
     NULL_DIRECTION(0, 0, 0);
 
 
-    private static Map<Integer, Direction> angleDirectionMap = new HashMap<>();
+    private static final Map<Integer, Direction> angleDirectionMap = new HashMap<>();
 
     static {
         loadAnglesAndDirections();
