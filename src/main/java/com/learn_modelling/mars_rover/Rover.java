@@ -15,25 +15,25 @@ public class Rover {
         return vector;
     }
 
-    public void move() {
-        this.vector = this.vector.move();
-    }
 
     public void move(String instructions) {
+        Vector vector = this.vector;
         for (Character c : instructions.toCharArray()) {
             switch (c) {
                 case 'L':
-                    this.vector = this.vector.left();
+                    vector = vector.left();
                     break;
                 case 'R':
-                    this.vector = this.vector.right();
+                    vector = vector.right();
                 case 'M':
-                    this.move();
+                    vector = vector.move();
                     break;
                 default:
                     break;
             }
         }
+
+        this.vector = vector;
     }
 
 }
