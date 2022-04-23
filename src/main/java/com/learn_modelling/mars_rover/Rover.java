@@ -2,13 +2,11 @@ package com.learn_modelling.mars_rover;
 
 public class Rover {
     private Vector vector;
-    private final int plateauX;
-    private final int plateauY;
+    private final Plateau plateau;
 
-    public Rover(Vector vector, int plateauX, int plateauY) {
+    public Rover(Vector vector, Plateau plateau) {
         this.vector = vector;
-        this.plateauX = plateauX;
-        this.plateauY = plateauY;
+        this.plateau = plateau;
     }
 
     public Vector vector() {
