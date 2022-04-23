@@ -37,10 +37,10 @@ public class DirectionTest {
 
     @Test
     void shouldReturnWestWhenTurnedLeftFromNorth() {
-        Direction south = Direction.NORTH;
+        Direction north = Direction.NORTH;
         Direction expected = Direction.WEST;
 
-        Direction actual = south.left();
+        Direction actual = north.left();
 
         assertEquals(expected, actual);
     }
