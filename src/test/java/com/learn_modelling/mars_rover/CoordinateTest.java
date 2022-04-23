@@ -2,6 +2,7 @@ package com.learn_modelling.mars_rover;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CoordinateTest {
@@ -10,7 +11,7 @@ public class CoordinateTest {
         Coordinate coordinate = new Coordinate(2, 3);
         Coordinate other = new Coordinate(2, 3);
 
-        assertTrue(coordinate.equals(other));
+        assertEquals(coordinate, other);
     }
 
     @Test
