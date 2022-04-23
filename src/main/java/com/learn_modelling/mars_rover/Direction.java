@@ -9,9 +9,7 @@ public enum Direction {
     NORTH(0, 0, 1),
     EAST(90, 1, 0),
     SOUTH(180, 0, -1),
-    WEST(270, -1, 0),
-    NULL_DIRECTION(0, 0, 0);
-
+    WEST(270, -1, 0);
 
     private static final Map<Integer, Direction> angleDirectionMap = new HashMap<>();
 

@@ -1,37 +1,45 @@
 package com.learn_modelling.mars_rover;
 
 public class Rover {
-    private Vector vector;
-    private final Vector plateau;
+    private Coordinate coordinate;
+    private Direction direction;
+    private final Coordinate plateau;
 
-    public Rover(Vector vector, Vector plateau) {
-        this.vector = vector;
+    public Rover(Coordinate coordinate, Direction direction, Coordinate plateau) {
+        this.coordinate = coordinate;
+        this.direction = direction;
         this.plateau = plateau;
     }
 
-    public Vector vector() {
-        return vector;
+    public Coordinate coordinate() {
+        return coordinate;
     }
 
+    public Direction direction() {
+        return direction;
+    }
 
     public void move(String instructions) throws RoverOutOfPlateauBoundsException {
-        Vector vector = this.vector;
-        for (Character c : instructions.toCharArray()) {
-            switch (c) {
+        Coordinate coordinate = this.coordinate;
+        Direction direction = this.direction;
+
+        for (Character ch : instructions.toCharArray()) {
+            switch (ch) {
                 case 'L':
-                    vector = vector.left();
+                    direction = direction.left();
                     break;
                 case 'R':
-                    vector = vector.right();
-                case 'M':
-                    vector = vector.move();
+                    direction = direction.right();
                     break;
-                default:
+                case 'M':
+                    coordinate = coordinate.add(new Coordinate(direction.xMovement, direction.yMovement));
                     break;
             }
         }
-        if (vector.isOutOfBounds(plateau)) throw new RoverOutOfPlateauBoundsException();
-        this.vector = vector;
-    }
 
+        if (coordinate.isOutOfBounds(plateau)) throw new RoverOutOfPlateauBoundsException();
+
+        this.coordinate = coordinate;
+        this.direction = direction;
+    }
 }
