@@ -13,14 +13,13 @@ public enum Direction {
     NULL_DIRECTION(0, 0, 0);
 
 
-    private static Map<Integer, Direction> angleDirectionMap;
+    private static Map<Integer, Direction> angleDirectionMap = new HashMap<>();
 
     static {
         loadAnglesAndDirections();
     }
 
     private static void loadAnglesAndDirections() {
-        angleDirectionMap = new HashMap<>();
         Direction[] directions = new Direction[]{Direction.NORTH, Direction.EAST, Direction.WEST, Direction.SOUTH};
         Arrays.stream(directions).forEach(direction -> angleDirectionMap.put(direction.angle, direction));
     }
