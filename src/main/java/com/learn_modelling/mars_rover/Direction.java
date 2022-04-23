@@ -6,25 +6,32 @@ import java.util.Map;
 
 public enum Direction {
 
-    NORTH(360), EAST(90), SOUTH(180), WEST(270);
+    NORTH(360, 0, 1),
+    EAST(90, 1, 0),
+    SOUTH(180, 0, -1),
+    WEST(270, -1, 0);
 
 
     private static Map<Integer, Direction> angleDirectionMap;
 
     static {
-        loadDirectionsAndAngles();
+        loadAnglesAndDirections();
     }
 
-    private static void loadDirectionsAndAngles() {
+    private static void loadAnglesAndDirections() {
         angleDirectionMap = new HashMap<>();
         Direction[] directions = new Direction[]{Direction.NORTH, Direction.EAST, Direction.WEST, Direction.SOUTH};
         Arrays.stream(directions).forEach(direction -> angleDirectionMap.put(direction.angle, direction));
     }
 
     private final int angle;
+    public final int xMovement;
+    public final int yMovement;
 
-    Direction(int angle) {
+    Direction(int angle, int xMovement, int yMovement) {
         this.angle = angle;
+        this.xMovement = xMovement;
+        this.yMovement = yMovement;
     }
 
     public Direction left() {
