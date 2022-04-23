@@ -2,9 +2,9 @@ package com.learn_modelling.mars_rover;
 
 public class Rover {
     private Vector vector;
-    private final Plateau plateau;
+    private final Vector plateau;
 
-    public Rover(Vector vector, Plateau plateau) {
+    public Rover(Vector vector, Vector plateau) {
         this.vector = vector;
         this.plateau = plateau;
     }
@@ -14,7 +14,7 @@ public class Rover {
     }
 
 
-    public void move(String instructions) {
+    public void move(String instructions) throws RoverOutOfPlateauBoundsException {
         Vector vector = this.vector;
         for (Character c : instructions.toCharArray()) {
             switch (c) {
@@ -30,7 +30,7 @@ public class Rover {
                     break;
             }
         }
-
+        if (vector.isOutOfBounds(plateau)) throw new RoverOutOfPlateauBoundsException();
         this.vector = vector;
     }
 
