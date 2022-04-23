@@ -6,7 +6,7 @@ import java.util.Map;
 
 public enum Direction {
 
-    NORTH(360, 0, 1),
+    NORTH(0, 0, 1),
     EAST(90, 1, 0),
     SOUTH(180, 0, -1),
     WEST(270, -1, 0);
@@ -36,13 +36,13 @@ public enum Direction {
 
     public Direction left() {
         return angleDirectionMap.get(
-                (this.angle - 90) % 360
+                (360 + this.angle - 90) % 360
         );
     }
 
     public Direction right() {
         return angleDirectionMap.get(
-                (this.angle + 90) % 360
+                (360 + this.angle + 90) % 360
         );
     }
 

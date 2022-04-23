@@ -29,4 +29,17 @@ public class Vector {
     public boolean isOutOfBounds(Vector other) {
         return this.x > other.x || this.y > other.y;
     }
+
+    public Vector move() {
+        return new Vector(this.x + direction.xMovement, this.y + direction.yMovement, this.direction);
+    }
+
+
+    public Vector left() {
+        return new Vector(this.x, this.y, direction.left());
+    }
+
+    public Vector right() {
+        return new Vector(this.x, this.y, direction.right());
+    }
 }
