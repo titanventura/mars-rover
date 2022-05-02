@@ -15,7 +15,6 @@ public class RoverTest {
         assertEquals(Direction.WEST, rover.direction());
     }
 
-
     @Test
     void shouldTurnRightWhenInstructed() {
         Coordinate coordinate = new Coordinate(1, 1);
@@ -24,6 +23,15 @@ public class RoverTest {
         rover.turnRight();
 
         assertEquals(Direction.SOUTH, rover.direction());
+    }
+
+    @Test
+    void shouldReturnForwardCoordinateAs_X2Y1_WhenCoordinateIs_X1Y1_AndDirectionIsEast() {
+        Coordinate coordinate = new Coordinate(1, 1);
+        Rover rover = new Rover(coordinate, Direction.EAST);
+        Coordinate expected = new Coordinate(2, 1);
+
+        assertEquals(expected, rover.forwardCoordinate());
     }
 
     @Test

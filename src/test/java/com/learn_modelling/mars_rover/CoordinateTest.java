@@ -15,11 +15,11 @@ public class CoordinateTest {
     }
 
     @Test
-    void shouldReturnOutOfBoundsWhenX2AndY2IsComparedWithX3AndY2() {
-        Coordinate coordinate = new Coordinate(2, 2);
-        Coordinate greater = new Coordinate(3, 2);
+    void shouldReturnOutOfBoundsWhenX3AndY2IsComparedWithX3AndY3() {
+        Coordinate coordinate = new Coordinate(3, 2);
+        Coordinate greater = new Coordinate(3, 3);
 
-        assertTrue(greater.isOutOfBounds(coordinate));
+        assertTrue(greater.isXOrYGreater(coordinate));
     }
 
     @Test

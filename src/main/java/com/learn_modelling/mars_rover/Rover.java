@@ -4,6 +4,10 @@ public class Rover {
     private Coordinate coordinate;
     private Direction direction;
 
+    public static Rover createRover(int x, int y, Direction direction) {
+        return new Rover(new Coordinate(x, y), direction);
+    }
+
     public Rover(Coordinate coordinate, Direction direction) {
         this.coordinate = coordinate;
         this.direction = direction;
@@ -26,8 +30,11 @@ public class Rover {
         this.direction = this.direction.right();
     }
 
+    public Coordinate forwardCoordinate() {
+        return this.coordinate.add(new Coordinate(this.direction.xMovement, this.direction.yMovement));
+    }
+
     public void moveForward() {
-        Coordinate offset = new Coordinate(this.direction.xMovement, this.direction.yMovement);
-        this.coordinate = this.coordinate.add(offset);
+        this.coordinate = forwardCoordinate();
     }
 }

@@ -24,10 +24,17 @@ public class Coordinate {
         return Objects.hash(x, y);
     }
 
-    public boolean isOutOfBounds(Coordinate other) {
+    public boolean isXOrYGreater(Coordinate other) {
         return this.x > other.x || this.y > other.y;
     }
 
+    @Override
+    public String toString() {
+        return "Coordinate{" +
+                "x=" + x +
+                ", y=" + y +
+                '}';
+    }
 
     public Coordinate add(Coordinate other) {
         return new Coordinate(this.x + other.x, this.y + other.y);
