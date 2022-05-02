@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class RoverTest {
 
     @Test
-    void shouldRunProperlyWhenLeftAndMoveInstructionsAreGiven() throws RoverOutOfPlateauBoundsException {
+    void shouldBeAt_X1Y3_WhenIsAt_X1Y2_AndLeftAndMoveInstructionsAreGiven() throws RoverOutOfPlateauBoundsException {
         Coordinate plateau = new Coordinate(5, 5);
         Coordinate coordinate = new Coordinate(1, 2);
         Rover rover = new Rover(coordinate, Direction.NORTH, plateau);
@@ -21,7 +21,7 @@ public class RoverTest {
     }
 
     @Test
-    void shouldRunProperlyWhenRightAndMoveInstructionsAreGiven() throws RoverOutOfPlateauBoundsException {
+    void shouldBeAt_X5Y1_WhenIsAt_X3Y3_AndMoveAndRightInstructionsAreGiven() throws RoverOutOfPlateauBoundsException {
         Coordinate plateau = new Coordinate(5, 5);
         Coordinate coordinate = new Coordinate(3, 3);
         Rover rover = new Rover(coordinate, Direction.EAST, plateau);
