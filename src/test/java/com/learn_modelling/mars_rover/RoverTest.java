@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RoverTest {
     @Test
-    void shouldTurnLeftWhenInstructed() {
+    void shouldFaceWestWhenTurnedLeftFromNorth() {
         Coordinate coordinate = new Coordinate(1, 1);
         Rover rover = new Rover(coordinate, Direction.NORTH);
 
@@ -16,7 +16,7 @@ public class RoverTest {
     }
 
     @Test
-    void shouldTurnRightWhenInstructed() {
+    void shouldFaceSouthWhenTurnedRightFromEast() {
         Coordinate coordinate = new Coordinate(1, 1);
         Rover rover = new Rover(coordinate, Direction.EAST);
 
@@ -35,7 +35,7 @@ public class RoverTest {
     }
 
     @Test
-    void shouldBeAt_X1Y2_WhenMovedForwardFrom_X1Y1() {
+    void shouldBeAt_X1Y2_WhenMovedForwardFrom_X1Y1_AndDirectionIsNorth() {
         Coordinate coordinate = new Coordinate(1, 1);
         Rover rover = new Rover(coordinate, Direction.NORTH);
         Coordinate expected = new Coordinate(1, 2);
