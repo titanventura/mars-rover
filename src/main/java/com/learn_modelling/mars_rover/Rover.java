@@ -3,12 +3,10 @@ package com.learn_modelling.mars_rover;
 public class Rover {
     private Coordinate coordinate;
     private Direction direction;
-    private final Coordinate plateau;
 
-    public Rover(Coordinate coordinate, Direction direction, Coordinate plateau) {
+    public Rover(Coordinate coordinate, Direction direction) {
         this.coordinate = coordinate;
         this.direction = direction;
-        this.plateau = plateau;
     }
 
     public Coordinate coordinate() {
@@ -19,27 +17,17 @@ public class Rover {
         return direction;
     }
 
-    public void move(String instructions) throws RoverOutOfPlateauBoundsException {
-        Coordinate coordinate = this.coordinate;
-        Direction direction = this.direction;
 
-        for (Character ch : instructions.toCharArray()) {
-            switch (ch) {
-                case 'L':
-                    direction = direction.left();
-                    break;
-                case 'R':
-                    direction = direction.right();
-                    break;
-                case 'M':
-                    coordinate = coordinate.add(new Coordinate(direction.xMovement, direction.yMovement));
-                    break;
-            }
-        }
+    public void turnLeft() {
+        this.direction = this.direction.left();
+    }
 
-        if (coordinate.isOutOfBounds(plateau)) throw new RoverOutOfPlateauBoundsException();
+    public void turnRight() {
+        this.direction = this.direction.right();
+    }
 
-        this.coordinate = coordinate;
-        this.direction = direction;
+    public void moveForward() {
+        Coordinate offset = new Coordinate(this.direction.xMovement, this.direction.yMovement);
+        this.coordinate = this.coordinate.add(offset);
     }
 }
