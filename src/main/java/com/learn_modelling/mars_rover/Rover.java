@@ -37,4 +37,9 @@ public class Rover {
     public void moveForward() {
         this.coordinate = forwardCoordinate();
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s %s", coordinate.toString(), direction.toString());
+    }
 }
